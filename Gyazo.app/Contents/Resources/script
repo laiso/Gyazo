@@ -63,7 +63,7 @@ header ={
 Net::HTTP.start(HOST,80){|http|
   res = http.post(CGI,data,header)
   url = res.response.to_ary[1]
-  system "echo -n #{url} | pbcopy"
+  system "echo -n '<a href=\"#{url}\"><img src=\"#{url}.png\"></a>' | pbcopy"
   system "open #{url}"
 
   # save id
